@@ -11,19 +11,12 @@ def millions(x, pos):
 caminho_arquivo = "biweekly-confirmed-covid-19-cases.csv"
 dados_covid = pd.read_csv(caminho_arquivo)
 
-# Exibir as primeiras linhas do DataFrame para verificar a estrutura dos dados
-st.write("Primeiras linhas do DataFrame:")
-st.write(dados_covid.head())
-
 # Lista de países disponíveis
 paises = dados_covid['Entity'].unique()
 
 # Interface do usuário com Streamlit
 st.title("Evolução dos Casos de COVID-19")
-st.sidebar.header("Escolha o país")
-
-# Selecionar o país
-pais_selecionado = st.sidebar.selectbox("Selecione o país", paises)
+st.selectbox("Escolha seu país:", (paises))
 
 # Filtrar dados pelo país selecionado
 dados_pais = dados_covid[dados_covid['Entity'] == pais_selecionado]
