@@ -12,6 +12,7 @@ caminho_arquivo = "biweekly-confirmed-covid-19-cases.csv"
 dados_covid = pd.read_csv(caminho_arquivo)
 
 # Exibir as primeiras linhas do DataFrame para verificar a estrutura dos dados
+st.write("Primeiras linhas do DataFrame:")
 st.write(dados_covid.head())
 
 # Lista de países disponíveis
@@ -27,11 +28,19 @@ pais_selecionado = st.sidebar.selectbox("Selecione o país", paises)
 # Filtrar dados pelo país selecionado
 dados_pais = dados_covid[dados_covid['Entity'] == pais_selecionado]
 
+# Exibir as primeiras linhas do DataFrame filtrado para verificar a estrutura dos dados
+st.write(f"Primeiras linhas dos dados do país selecionado ({pais_selecionado}):")
+st.write(dados_pais.head())
+
 # Converter 'Day' para datetime, usando o formato específico 'AAAA-MM-DD'
 dados_pais['Day'] = pd.to_datetime(dados_pais['Day'], format='%Y-%m-%d', errors='coerce')
 
 # Remover linhas com datas inválidas
 dados_pais = dados_pais.dropna(subset=['Day'])
+
+# Verificar se a conversão de datas foi bem-sucedida
+st.write("Datas após a conversão:")
+st.write(dados_pais[['Day']].head())
 
 # Ordenar os dados por data
 dados_pais = dados_pais.sort_values('Day').reset_index(drop=True)
