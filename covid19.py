@@ -18,6 +18,13 @@ paises = dados_covid['Entity'].unique()
 st.title("Evolução dos Casos de COVID-19")
 pais_selecionado = st.selectbox("Escolha seu país:", (paises))
 
+# Barra lateral do site 
+with st.sidebar:
+    st.subheader('ecopolitica')
+    st.write('O presente projeto tem como finalidade oferecer transparência e acessibilidade às informações legislativas. O site abrange diversas questões ambientais, incluindo sustentabilidade, atividades agropecuárias, extrativismo, pesca, preservação de tribos indígenas e conservação da natureza. O principal objetivo do EcoPolítica é fornecer uma visão clara e detalhada sobre os projetos que impactam o meio ambiente.')
+    st.caption('Projeto desenvolvido por Maria Julia de Oliveira, Manuela Muniz e Clarissa Treptow, sob supervisão do Prof. Matheus C. Pestana')
+    st.caption('FGV ECMI')
+
 # Filtrar dados pelo país selecionado
 dados_pais = dados_covid[dados_covid['Entity'] == pais_selecionado]
 
