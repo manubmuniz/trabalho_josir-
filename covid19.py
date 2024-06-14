@@ -5,7 +5,7 @@ from matplotlib.ticker import FuncFormatter
 
 # Função para formatar os valores do eixo Y
 def millions(x, pos):
-    return '%1.0fM' % (x * 1e-6) if x >= 1e6 else '%1.0fK' % (x * 1e-3) if x >= 1e3 else '%1.0f' % x
+    return '%1.0fM' % (x * 1e-6) if x >= 1e6 else '%1.0fK' % (x * 1e3) if x >= 1e3 else '%1.0f' % x
 
 # Carregar dados
 caminho_arquivo = "biweekly-confirmed-covid-19-cases.csv"
@@ -27,10 +27,6 @@ pais_selecionado = st.sidebar.selectbox("Selecione o país", paises)
 
 # Filtrar dados pelo país selecionado
 dados_pais = dados_covid[dados_covid['Entity'] == pais_selecionado]
-
-# Exibir as primeiras linhas do DataFrame filtrado para verificar a estrutura dos dados
-st.write(f"Primeiras linhas dos dados do país selecionado ({pais_selecionado}):")
-st.write(dados_pais.head())
 
 # Converter 'Day' para datetime, usando o formato específico 'AAAA-MM-DD'
 dados_pais['Day'] = pd.to_datetime(dados_pais['Day'], format='%Y-%m-%d', errors='coerce')
@@ -66,4 +62,3 @@ ax.spines['right'].set_visible(False)
 
 # Mostrar o gráfico no Streamlit
 st.pyplot(fig)
-
