@@ -20,9 +20,9 @@ pais_selecionado = st.selectbox("Escolha seu país:", (paises))
 
 # Barra lateral do site 
 with st.sidebar:
-    st.subheader('ecopolitica')
-    st.write('O presente projeto tem como finalidade oferecer transparência e acessibilidade às informações legislativas. O site abrange diversas questões ambientais, incluindo sustentabilidade, atividades agropecuárias, extrativismo, pesca, preservação de tribos indígenas e conservação da natureza. O principal objetivo do EcoPolítica é fornecer uma visão clara e detalhada sobre os projetos que impactam o meio ambiente.')
-    st.caption('Projeto desenvolvido por Maria Julia de Oliveira, Manuela Muniz e Clarissa Treptow, sob supervisão do Prof. Matheus C. Pestana')
+    st.subheader('COVID-19 Tracker')
+    st.write('O programa tem como objetivo a visualização e análise dos casos de COVID-19 ao redor do mundo. Desenvolvido para fornecer insights claros e atualizados sobre a evolução da pandemia, nosso aplicativo utiliza dados precisos e confiáveis do Our World in Data para oferecer uma visão abrangente da situação global.')
+    st.caption('Projeto desenvolvido por Manuela Muniz')
     st.caption('FGV ECMI')
 
 # Filtrar dados pelo país selecionado
