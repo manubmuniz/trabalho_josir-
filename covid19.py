@@ -11,6 +11,9 @@ def millions(x, pos):
 caminho_arquivo = "biweekly-confirmed-covid-19-cases.csv"
 dados_covid = pd.read_csv(caminho_arquivo)
 
+# Exibir as primeiras linhas do DataFrame para verificar a estrutura dos dados
+st.write(dados_covid.head())
+
 # Lista de países disponíveis
 paises = dados_covid['Entity'].unique()
 
@@ -24,7 +27,7 @@ pais_selecionado = st.sidebar.selectbox("Selecione o país", paises)
 # Filtrar dados pelo país selecionado
 dados_pais = dados_covid[dados_covid['Entity'] == pais_selecionado]
 
-# Converter 'Day' para datetime, ignorando erros
+# Converter 'Day' para datetime, usando o formato específico 'AAAA-MM-DD'
 dados_pais['Day'] = pd.to_datetime(dados_pais['Day'], format='%Y-%m-%d', errors='coerce')
 
 # Remover linhas com datas inválidas
