@@ -24,8 +24,11 @@ pais_selecionado = st.sidebar.selectbox("Selecione o país", paises)
 # Filtrar dados pelo país selecionado
 dados_pais = dados_covid[dados_covid['Entity'] == pais_selecionado]
 
-# Converter 'Day' para datetime
-dados_pais['Day'] = pd.to_datetime(dados_pais['Day'], format='%Y-%m-%d')
+# Converter 'Day' para datetime, ignorando erros
+dados_pais['Day'] = pd.to_datetime(dados_pais['Day'], format='%Y-%m-%d', errors='coerce')
+
+# Remover linhas com datas inválidas
+dados_pais = dados_pais.dropna(subset=['Day'])
 
 # Ordenar os dados por data
 dados_pais = dados_pais.sort_values('Day').reset_index(drop=True)
@@ -51,3 +54,4 @@ ax.spines['right'].set_visible(False)
 
 # Mostrar o gráfico no Streamlit
 st.pyplot(fig)
+
