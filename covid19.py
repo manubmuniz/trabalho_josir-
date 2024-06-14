@@ -28,12 +28,18 @@ pais_selecionado = st.sidebar.selectbox("Selecione o país", paises)
 # Filtrar dados pelo país selecionado
 dados_pais = dados_covid[dados_covid['Entity'] == pais_selecionado]
 
+# Converter 'Day' para datetime, usando o formato específico 'AAAA-MM-DD'
+dados_pais['Day'] = pd.to_datetime(dados_pais['Day'], format='%Y-%m-%d', errors='coerce')
+
+# Remover linhas com datas inválidas
+dados_pais = dados_pais.dropna(subset=['Day'])
+
+# Verificar se a conversão de datas foi bem-sucedida
+st.write("Datas após a conversão:")
+st.write(dados_pais[['Day']].head())
+
 # Ordenar os dados por data
 dados_pais = dados_pais.sort_values('Day').reset_index(drop=True)
-
-# Verificar as primeiras linhas dos dados do país selecionado após a ordenação
-st.write(f"Primeiras linhas dos dados do país selecionado ({pais_selecionado}) após ordenação:")
-st.write(dados_pais.head())
 
 # Calcular a diferença diária de casos (como os dados são bissemanal, dividimos por 14)
 dados_pais['daily_cases'] = dados_pais['Biweekly cases'] / 14
