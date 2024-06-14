@@ -34,10 +34,6 @@ dados_pais['Day'] = pd.to_datetime(dados_pais['Day'], format='%Y-%m-%d', errors=
 # Remover linhas com datas inválidas
 dados_pais = dados_pais.dropna(subset=['Day'])
 
-# Verificar se a conversão de datas foi bem-sucedida
-st.write("Datas após a conversão:")
-st.write(dados_pais[['Day']].head())
-
 # Ordenar os dados por data
 dados_pais = dados_pais.sort_values('Day').reset_index(drop=True)
 
