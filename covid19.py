@@ -56,10 +56,6 @@ ax.spines['right'].set_visible(False)
 # Mostrar o gráfico no Streamlit
 st.pyplot(fig)
 
-t.sidebar.title("COVID-19 Case Analyzer")
-st.sidebar.info("O nosso projeto tem como objetivo a visualização e análise dos casos de COVID-19 ao redor do mundo. Desenvolvido para fornecer insights claros e atualizados sobre a evolução da pandemia, nosso aplicativo utiliza dados precisos e confiáveis do Our World in Data para oferecer uma visão abrangente da situação global.")
-
-
 
 
 
