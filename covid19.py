@@ -55,3 +55,16 @@ ax.spines['right'].set_visible(False)
 
 # Mostrar o gráfico no Streamlit
 st.pyplot(fig)
+
+t.sidebar.title("COVID-19 Case Analyzer")
+st.sidebar.info("O nosso projeto tem como objetivo a visualização e análise dos casos de COVID-19 ao redor do mundo. Desenvolvido para fornecer insights claros e atualizados sobre a evolução da pandemia, nosso aplicativo utiliza dados precisos e confiáveis do Our World in Data para oferecer uma visão abrangente da situação global.
+
+Aqui você pode explorar e comparar o número de casos confirmados de COVID-19 em diferentes países de forma interativa. Basta selecionar os países de interesse e nosso aplicativo gera gráficos de barras que mostram a evolução diária ou semanal dos casos. Essa funcionalidade facilita a comparação de tendências ao longo do tempo e a compreensão da propagação da doença em diferentes regiões.
+
+Além disso, nosso programa oferece recursos avançados de visualização, como formatação automática de números para facilitar a leitura, e a possibilidade de ajustar as datas e intervalos de visualização conforme necessário.")
+
+
+
+
+
+
