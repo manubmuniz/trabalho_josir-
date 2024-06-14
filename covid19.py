@@ -16,7 +16,7 @@ paises = dados_covid['Entity'].unique()
 
 # Interface do usuário com Streamlit
 st.title("Evolução dos Casos de COVID-19")
-st.selectbox("Escolha seu país:", (paises))
+pais_selecionado = st.selectbox("Escolha seu país:", (paises))
 
 # Filtrar dados pelo país selecionado
 dados_pais = dados_covid[dados_covid['Entity'] == pais_selecionado]
